@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  dev:
+    build:
+      context: ./
+      args:
+        ARG_PYPICLI_VERSION: ${DOCKER_PYPICLI_VERSION}
+    image: muccg/pypicli:${GIT_BRANCH}
+
+  prod:
+    build:
+      context: ./
+      args:
+        ARG_PYPICLI_VERSION: ${DOCKER_PYPICLI_VERSION}
+    image: muccg/pypicli:${DOCKER_PYPICLI_VERSION}
+
+  latest:
+    extends:
+      file: docker-compose-build.yml
+      service: prod
+    image: muccg/pypicli:latest

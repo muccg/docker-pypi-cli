@@ -1,0 +1,7 @@
+#!/bin/bash
+pypicli="docker run --rm \
+                   --interactive \
+                   --tty \
+                   muccg/pypicli"
+
+exec $pypicli "$@"
